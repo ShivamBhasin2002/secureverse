@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
-import {WalletContext} from '../context/WalletContext'
+import { WalletContext } from "../context/WalletContext";
 import { shortenAddress } from "../utils/shortenAddress";
 
-
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+const companyCommonStyles =
+  "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -20,17 +20,18 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { connectWallet , currentAccount } = useContext(WalletContext);
- 
+  const { connectWallet, currentAccount } = useContext(WalletContext);
+
   return (
     <div className="flex w-full justify-center items-center">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
           <h1 className="font-semibold text-5xl text-white py-4">
-            Smart Contract Auditing 
+            Smart Contract Auditing
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Get your smart contracts audited quickly to ensure the most secure transactions on the blockchain. 
+            Get your smart contracts audited quickly to ensure the most secure
+            transactions on the blockchain.
           </p>
           {!currentAccount && (
             <button
@@ -51,7 +52,7 @@ const Welcome = () => {
             </div>
             <div className={companyCommonStyles}>Security</div>
             <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
-            Blockchain
+              Blockchain
             </div>
             <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
               Protocols
@@ -76,32 +77,35 @@ const Welcome = () => {
                 <p className="text-white font-light text-sm">
                   {shortenAddress(currentAccount)}
                 </p>
-                <p className="text-white font-semibold text-lg mt-1">
-                  Audit 
-                </p>
+                <p className="text-white font-semibold text-lg mt-1">Audit</p>
               </div>
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
             <div className="flex text-white p-1">
               <p>Select your chain:</p>
-          <select id="chain" name="chain" className="bg-neutral-400 rounded-md mx-2 text-black">
-            <option value="eth">Eth</option>
-            <option value="bsc">BSC</option>
-          </select></div>
-            <Input placeholder="Enter Contract Address" name="message" type="text"  />
-          <div className="h-[1px] w-full bg-gray-400 my-2" />
+              <select
+                id="chain"
+                name="chain"
+                className="bg-neutral-400 rounded-md mx-2 text-black"
+              >
+                <option value="eth">Eth</option>
+                <option value="bsc">BSC</option>
+              </select>
+            </div>
+            <Input
+              placeholder="Enter Contract Address"
+              name="message"
+              type="text"
+            />
+            <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-           
-              
-                <button
-                  type="button"
-                  
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
-                >
-                  Scan now
-                </button>
-         
+            <button
+              type="button"
+              className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+            >
+              Scan now
+            </button>
           </div>
         </div>
       </div>

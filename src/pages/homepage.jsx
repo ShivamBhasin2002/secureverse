@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar'
 import Welcome from '../Components/Welcome'
 import Services from '../Components/Services'
 import Footer from '../Components/Footer'
+import AuditFinding from '../Components/AuditFinding'
 
 export default function Homepage() {
   return (
@@ -12,6 +13,7 @@ export default function Homepage() {
       <Navbar/>
       <Welcome/>
     </div>
+    <AuditFinding />
     <Services/>
     <Footer />
   </div>
