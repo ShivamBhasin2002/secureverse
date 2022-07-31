@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState,  useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { WalletContext } from "../context/WalletContext";
 import { shortenAddress } from "../utils/shortenAddress";
+import Modal from 'react-modal';
+import AuditFinding from "./AuditFinding";
 
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -19,8 +21,24 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
   />
 );
 
+Modal.setAppElement(document.getElementById('root'));
+
 const Welcome = () => {
+  let subtitle;
   const { connectWallet, currentAccount } = useContext(WalletContext);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div className="flex w-full justify-center items-center">
@@ -94,18 +112,40 @@ const Welcome = () => {
               </select>
             </div>
             <Input
-              placeholder="Enter Contract Address"
+              placeholder={`${currentAccount || "Enter Contract Address"}`}
               name="message"
               type="text"
-            />
+            >{currentAccount}</Input>
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
             <button
+              onClick={openModal}
               type="button"
               className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
             >
-              Scan now
+              Scan Now
             </button>
+            <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={{
+              overlay: {
+                padding: '0',
+                border: '1px solid rgb(62 6 95)',
+                transition: 'opacity 500ms ease-in-out',
+                backgroundColor: 'rgba(62, 5, 84, 0.63)',
+              },
+              content: {
+                margin: '0',
+                padding: '0',
+                scrollbarColor: '#000000',
+              }
+            }}
+            >
+              <AuditFinding contractAddress={currentAccount} />
+            </Modal>
+          
           </div>
         </div>
       </div>

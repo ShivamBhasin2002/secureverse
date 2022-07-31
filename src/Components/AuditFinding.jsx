@@ -2,13 +2,13 @@ import { useState } from "react";
 import { BsCheckAll } from "react-icons/bs";
 import { GoAlert } from "react-icons/go";
 
-const AuditFinding = () => {
+const AuditFinding = (props) => {
   const [high, setHigh] = useState(true);
   const [medium, setMedium] = useState(true);
   const [low, setLow] = useState(true);
   return (
-    <main className="flex flex-col gradient-bg-services min-h-screen items-center gap-8 px-4">
-      <div className="font-semibold text-5xl text-white">Audit Findings</div>
+    <main className="flex flex-col gradient-bg-services min-h-screen items-center gap-8  p-4">
+      <div className="font-semibold text-5xl text-white text-center">Audit Findings</div>
       <section className="flex flex-row flex-wrap gap-6 w-full lg:w-[80%] flex-grow">
         <aside className="flex flex-col blue-glassmorphism w-[300px] h-min">
           <ul className="p-6 flex flex-col gap-2 border-b-4 border-b-white/10">
@@ -49,10 +49,22 @@ const AuditFinding = () => {
           <div className="p-6 flex flex-col gap-2 border-b-2 border-b-white/10 text-white">
             Lorem ipsum dolor sit amet
           </div>
-          <div className="p-6 flex flex-col gap-2  text-white">
+          <div className="p-6 flex flex-col gap-2 border-b-2 border-b-white/10  text-white">
             Lorem ipsum dolor sit, amet
           </div>
+          <ul className="p-6 flex flex-col gap-2 border-b-4 border-b-white/10">
+              <div className="font-semibold text-3xl text-white ">
+                Contract Details
+              </div>
+              <div className="font-semibold text-white ">Contract Address</div>
+              <div className="text-neutral-400 text-sm break-all">{props.contractAddress}</div>
+              <div className="font-semibold text-white ">Contract Name</div>
+              <div className="text-neutral-400 ">SafeTransactions</div>
+              <div className="font-semibold text-white ">Contract Score</div>
+              <div className="text-neutral-400 ">45</div>
+            </ul>
         </aside>
+        
         <article className="flex-grow flex flex-col gap-4">
           <div className="blue-glassmorphism flex-grow flex flex-col gap-4">
             <div className="flex flex-row flex-wrap p-2 px-4 gap-4 font-bold">
@@ -66,7 +78,7 @@ const AuditFinding = () => {
               <div className="text-2xl text-white font-semibold">
                 Affected Component
               </div>
-              <div className="bg-white/20 p-2 rounded-lg max-w-[700px] flex flex-row items-center">
+              <div className="bg-white/20 text-white p-2 rounded-lg max-w-[700px] flex flex-row items-center">
                 <GoAlert size="2rem" className="mr-4" /> Lorem ipsum, dolor sit
                 amet consectetur adipisicing elit.
               </div>
@@ -75,7 +87,7 @@ const AuditFinding = () => {
               <div className="text-2xl text-white font-semibold">
                 How to reproduce
               </div>
-              <div className="bg-white/20 p-2 rounded-lg max-w-[700px] flex flex-row items-center">
+              <div className="bg-white/20 text-white p-2 rounded-lg max-w-[700px] flex flex-row items-center">
                 <GoAlert size="2rem" className="mr-4" /> Lorem ipsum, dolor sit
                 amet consectetur adipisicing elit.
               </div>
@@ -84,25 +96,38 @@ const AuditFinding = () => {
               <div className="text-2xl text-white font-semibold">
                 How to fix
               </div>
-              <div className="bg-white/20 p-2 rounded-lg max-w-[700px] flex flex-row items-center">
+              <div className="bg-white/20 text-white p-2 rounded-lg max-w-[700px] flex flex-row items-center mb-3">
                 <GoAlert size="2rem" className="mr-4" /> Lorem ipsum, dolor sit
                 amet consectetur adipisicing elit.
               </div>
             </div>
           </div>
-          <table className="blue-glassmorphism flex-grow">
-            <thead>
-              <tr></tr>
+          <table className="blue-glassmorphism  flex-grow">
+            <thead className="text-white border-b rounded-md">
+              <th>Severity</th>
+              <th>Type</th>
+              <th>No.s</th>
             </thead>
+            <tr className="text-white border-b border-slate-600 text-center ">
+              <td>High</td>
+              <td>Type</td>
+              <td>5</td>
+            </tr>
+            <tr className="text-white border-b border-slate-600 text-center">
+              <td>Medium</td>
+              <td>Type</td>
+              <td>3</td>
+            </tr>
+            <tr className="text-white  text-center">
+              <td>Low</td>
+              <td>Type</td>
+              <td>1</td>
+            </tr>
           </table>
         </article>
         <section className="flex flex-row flex-wrap gap-6 w-full lg:w-[80%] flex-grow">
           <aside className="flex flex-col blue-glassmorphism w-[300px] h-min">
-            <ul className="p-6 flex flex-col gap-2 border-b-4 border-b-white/10">
-              <div className="font-semibold text-3xl text-white ">
-                Filter Risks
-              </div>
-            </ul>
+
           </aside>
         </section>
       </section>

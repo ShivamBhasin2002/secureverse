@@ -42,13 +42,13 @@ const Services = () => (
           color="bg-[#8945F8]"
           title="Web3 Expertise "
           icon={<BiSearchAlt fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Experience is guaranteed. We have a team of experts to help you with your smart contract needs"
         />
         <ServiceCard
           color="bg-[#F84550]"
           title="Fastest Service"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Quick service is guranteed. We always prioritise perfectly our customers needs"
         />
       </div>
     </div>

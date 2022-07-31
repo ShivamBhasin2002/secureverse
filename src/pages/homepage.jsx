@@ -13,7 +13,6 @@ export default function Homepage() {
       <Navbar/>
       <Welcome/>
     </div>
-    <AuditFinding />
     <Services/>
     <Footer />
   </div>
