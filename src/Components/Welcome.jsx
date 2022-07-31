@@ -91,6 +91,10 @@ const Welcome = () => {
                 </div>
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
+
+                <p className="text-white font-bold text-lg ">
+                  SafeTransactions
+                </p>
               <div>
                 <p className="text-white font-light text-sm">
                   {shortenAddress(currentAccount)}
