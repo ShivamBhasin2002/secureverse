@@ -99,7 +99,7 @@ const Welcome = () => {
                 <p className="text-white font-light text-sm">
                   {shortenAddress(currentAccount)}
                 </p>
-                <p className="text-white font-semibold text-lg mt-1">Audit</p>
+                <p className="text-white  text-lg mt-1">Audit</p>
               </div>
             </div>
           </div>
